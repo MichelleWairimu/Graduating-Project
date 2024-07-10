@@ -23,7 +23,7 @@ const uri:string = process.env.MONGO_URI || 'mongodb+srv://Graduating-project:HM
     }
 }) ();
 
-app.get('/health', (req:Request, res:Response) => {
+app.get('/agri', (req:Request, res:Response) => {
     res.status(200).json("Server is running")
 })
 
