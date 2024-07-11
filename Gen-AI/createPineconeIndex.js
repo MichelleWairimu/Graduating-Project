@@ -1,28 +1,27 @@
-import { PineconeClient } from '@pinecone-database/pinecone';
+import 'dotenv/config';
+import pkg from '@pinecone-database/pinecone';
+const { PineconeClient } = pkg
 
 async function accessExistingPineconeIndex() {
   try {
-    // Test Fetch API
-    const response = await fetch('https://httpbin.org/get');
-    if (!response.ok) {
-      throw new Error('Fetch API test failed');
-    }
-    console.log('Fetch API test successful');
-
     const pc = new PineconeClient();
+    console.log('Initializing Pinecone client...');
     await pc.init({
-      apiKey: 'c85a2244-4db3-464b-a9e2-f366e296718d',
-      environment: 'us-west1-gcp' // specify your environment
+      apiKey: process.env.PINECONE_API_KEY,
+      environment: process.env.PINECONE_ENVIRONMENT
     });
+    console.log('Pinecone client initialized.');
 
-    const index = pc.Index('graduating project');
+    const index = pc.Index('graduating-project');
     console.log('Accessed index:', index);
   } catch (error) {
-    console.error('Error:', error.message);
+    console.error('Error:', error);
   }
 }
 
 accessExistingPineconeIndex().catch(console.error);
+
+
 
 /*
 export const createPineconeIndex = async (

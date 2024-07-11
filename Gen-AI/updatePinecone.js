@@ -1,12 +1,18 @@
-import { PineconeClient } from '@pinecone-database/pinecone';
+import { Pinecone } from '@pinecone-database/pinecone';
 import pdf from 'pdf-parse';
 import fs from 'fs';
 import path from 'path';
 import OpenAI from 'openai';
+import 'dotenv/config'; // Make sure to load environment variables first
+import { fileURLToPath } from 'url';
+
+// Define __dirname for ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Initialize OpenAI
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY // This is also the default, can be omitted
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 // Function to convert text to embeddings using OpenAI
@@ -56,10 +62,10 @@ async function processPDFAndStoreEmbeddings(filePath, index) {
 async function processAllPDFsInDirectory(directoryPath, indexName) {
   try {
     // Initialize Pinecone client
-    const pc = new PineconeClient();
+    const pc = new Pinecone();
     await pc.init({
-      apiKey: 'YOUR_PINECONE_API_KEY', // replace with your Pinecone API key
-      environment: 'us-west1-gcp' // specify your environment
+      apiKey: 'c85a2244-4db3-464b-a9e2-f366e296718d', // replace with your Pinecone API key
+      environment: 'us-east-1' // specify your environment
     });
 
     const index = pc.Index(indexName);
@@ -89,6 +95,14 @@ const directoryPath = path.join(__dirname, '../data/');
 const indexName = 'graduating-project';
 
 processAllPDFsInDirectory(directoryPath, indexName).catch(console.error);
+
+
+
+
+
+
+
+
 
 /*
 // 1. Import required modules
