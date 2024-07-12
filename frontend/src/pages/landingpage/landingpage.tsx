@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './landingpage.css'
 /* import searchBar from '../../components/searchbar'
 
@@ -10,12 +11,12 @@ import './landingpage.css'
       <nav>
       <div className="nav-links">
       <ul>
-        <li><a href="">Home</a></li>
-        <li><a href="">About Us</a></li>
-        <li><a href="">Testimonials</a></li>
-        <li><a href="">Contact Us</a></li>
-        <li ><a href="">Sign up</a></li>
-        <li ><a href="">Log In</a></li>
+        <li><Link to={'/home'}>Home</Link></li>
+        <li><Link to={'/'}>About Us</Link></li>
+        <li><Link to={'/'}>Testimonials</Link></li>
+        <li><Link to={'/'}>Contact Us</Link></li>
+        <li ><Link to={'/register'}>Sign Up</Link></li>
+        <li ><Link to={'/login'}>Log In</Link></li>
       </ul>
       </div>
       </nav>
@@ -73,12 +74,12 @@ import './landingpage.css'
     </div>
     <p className='boom'>AgriGrow © 2024 Privacy Policy</p>
     <ul>
-    <li><a href="">Home</a></li>
-        <li><a href="">About Us</a></li>
-        <li><a href="">Testimonials</a></li>
-        <li><a href="">Contact Us</a></li>
-        <li ><a href="">Sign up</a></li>
-        <li ><a href="">Log In</a></li>
+        <li><Link to={'/home'}>Home</Link></li>
+        <li><Link to={'/'}>About Us</Link></li>
+        <li><Link to={'/'}>Testimonials</Link></li>
+        <li><Link to={'/'}>Contact Us</Link></li>
+        <li ><Link to={'/register'}>Sign Up</Link></li>
+        <li ><Link to={'/login'}>Log In</Link></li>
         </ul>
     </footer>
   </>
