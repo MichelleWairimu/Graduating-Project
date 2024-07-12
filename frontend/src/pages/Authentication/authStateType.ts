@@ -1,6 +1,12 @@
 export interface RegisterState {
-    email: string;
+ firstName:string;
+ lastName:string;
+ email:string;
+ password:string;
+ persona:string;
+}
+
+export interface LoginState {
+    email:string;
     password: string;
-    lastName: string;
-    firstName: string;
 }
