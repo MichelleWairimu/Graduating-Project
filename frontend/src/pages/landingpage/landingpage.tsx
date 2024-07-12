@@ -1,6 +1,7 @@
 import './landingpage.css'
-/* import searchBar from '../../components/searchbar'*/
-export const Landingpage = () => {
+/* import searchBar from '../../components/searchbar'
+
+ */export const Landingpage = () => {
   return (
     <>
       <div className='header1'> 
@@ -25,7 +26,7 @@ export const Landingpage = () => {
     </div>
     </div>
     <div className="iframe">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/2bsMa8yE17o?si=FvTeAoYyizT6r6OE" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/2bsMa8yE17o?si=FvTeAoYyizT6r6OE" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
     <div className='text1'>
     <h2>How farmers lose alot when they are not connected directly to the suppliers.</h2>
     <p>Farmers face significant losses when they lack direct connections to their suppliers. Without direct contact, farmers may encounter challenges such as delayed responses to market demands, leading to surplus or scarcity of produce. Moreover, intermediaries often take a substantial portion of profits, reducing the farmers earnings.
