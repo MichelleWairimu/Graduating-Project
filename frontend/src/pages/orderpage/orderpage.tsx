@@ -8,12 +8,12 @@ export const Orderpage = () => {
     <nav>
     <div className="nav-link">
     <ul>
-      <li><a href="">Home</a></li>
-      <li><a href="">About Us</a></li>
-      <li><a href="">Testimonials</a></li>
-      <li><a href="">Contact Us</a></li>
-      <li ><a href="">Sign up</a></li>
-      <li ><a href="">Log In</a></li>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/about">About Us</a></li>
+      <li><a href="/testimonials">Testimonials</a></li>
+      <li><a href="/contact">Contact Us</a></li>
+      <li ><a href="/register">Sign up</a></li>
+      <li ><a href="/login">Log In</a></li>
     </ul>
     </div>
     </nav>

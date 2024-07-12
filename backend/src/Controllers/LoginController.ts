@@ -19,5 +19,7 @@ export const Login = async (req:Request, res:Response) => {
        throw new Error('Invalid Email or Password')
     }
 
-    res.status(200).json({mssg: 'User logged in successfully', user})
-}
+    //return persona
+    const {persona, firstName, lastName} = user
+    res.status(200).json({persona, firstName, lastName, mssg:  'User logged in successfully'});
+   }

@@ -1,5 +1,5 @@
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
-import { HomePage } from './pages/HomePage'
+import { HomePage } from './pages/Home/HomePage'
 import { Register, Login } from './pages/Authentication'
 /* import { Navbar } from './components/Navbar' */
 /* import { Footer } from './components/Footer' */
