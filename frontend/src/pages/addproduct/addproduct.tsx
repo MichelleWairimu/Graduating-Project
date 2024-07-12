@@ -1,24 +1,9 @@
+import { Navbar } from "../../components/Navbar"
 import "./addproduct.css"
 export const Addproduct = () => {
   return (
-    <>
-    <div className='header3'>
-    <div className='header4'>
-  <a href=""><img src="../../public/images/p2.png" alt="" /></a>
-    <nav>
-    <div className="nav-link">
-    <ul>
-      <li><a href="/home">Home</a></li>
-      <li><a href="/about">About Us</a></li>
-      <li><a href="/testimonials">Testimonials</a></li>
-      <li><a href="/contact">Contact Us</a></li>
-      <li ><a href="/register">Sign up</a></li>
-      <li ><a href="/login">Log In</a></li>
-    </ul>
-    </div>
-    </nav>
-  </div>
-  </div>
+    <> 
+ <Navbar />
   <div className="part3">
     <button className="A">Farmer</button>
     <button className="B">Farmer</button>
@@ -108,25 +93,7 @@ export const Addproduct = () => {
         </form>
     </div>
     </div>
-    <footer>
-    <a href=""><img src="../../public/images/p2.png" alt="" /></a>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae ducimus libero id natus asperiores ipsum consequatur, eum eveniet, ullam ipsa aut autem obcaecati. Obcaecati laborum saepe totam temporibus quasi error.</p>
-    <div className="contents">
-    <a href="https://www.instagram.com/"><img src="../../public/images/insta.png" alt="" /></a>
-    <a href="https://twitter.com/"><img src="../../public/images/twitter.png" alt="" /></a>
-    <a href="https://youtube.com/"><img src="../../public/images/youtube.png" alt="" /></a>
-    <a href="https://web.whatsapp.com/"><img src="../../public/images/whatsapp.png" alt="" /></a>
-    </div>
-    <p className='boom'>AgriGrow © 2024 Privacy Policy</p>
-    <ul>
-    <li><a href="">Home</a></li>
-        <li><a href="">About Us</a></li>
-        <li><a href="">Testimonials</a></li>
-        <li><a href="">Contact Us</a></li>
-        <li ><a href="">Sign up</a></li>
-        <li ><a href="">Log In</a></li>
-        </ul>
-    </footer>
+   
   </>
   )
 }

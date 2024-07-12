@@ -262,39 +262,3 @@ footer img{
     position: relative;
     transform:translate(-50%,-50%);
 }
-.contents{
-    width: 20px;
-    display: flex;
-    margin-top: 30px;
-   margin-left: 43%;
-}
-.contents img{
-    width:20px;
-    margin-left: 20px;
-    transition: transform 0.3s ease;
-    display: block;
-}
-.contents img:hover{
-    transform: scale(0.9);
-}
-.boom{
-    margin-left:500px;
-    margin-top: 20px;
-}
-footer ul{
-    display: flex;
-    margin-left: 500px;
-    margin-top: -190px;
-}
-footer ul li{
-    margin-left: 40px;
-    list-style: none;
-}
-footer ul li a{
-    text-decoration: none;
-    color: #fff;
-    font-size: 20px;
-}
-footer ul li :hover{
-    color: #279639;
-}

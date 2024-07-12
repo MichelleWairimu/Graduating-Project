@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from "react-redux"
 import { login } from "../../Reducers/authReducer"
+import { Navbar } from "../../components/Navbar"
 
 
 export const Login: React.FC = () => {
@@ -43,6 +44,8 @@ export const Login: React.FC = () => {
     }
     
     return(
+        <>
+        <Navbar />
         <div className="authentication">
             <div className="button-slider">
             <Link to={'/register'} className="Signup-button">Sign Up</Link>
@@ -72,5 +75,6 @@ export const Login: React.FC = () => {
           
         </form>
        </div>
+       </>
     )
 }

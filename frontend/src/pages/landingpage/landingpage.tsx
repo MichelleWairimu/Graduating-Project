@@ -63,25 +63,6 @@ import './landingpage.css'
       <p>If you want to receive emails with recent updates about our site and whats new.<br/>Follow the link below and fill the form :P</p>
      <a href="https://forms.gle/XbQjuKhSKNLquRUdA"><img src="../../public/images/b4.png" alt="" /></a>
     </div>
-    <footer>
-    <a href=""><img src="../../public/images/p2.png" alt="" /></a>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae ducimus libero id natus asperiores ipsum consequatur, eum eveniet, ullam ipsa aut autem obcaecati. Obcaecati laborum saepe totam temporibus quasi error.</p>
-    <div className="contents">
-    <a href="https://www.instagram.com/"><img src="../../public/images/insta.png" alt="" /></a>
-    <a href="https://twitter.com/"><img src="../../public/images/twitter.png" alt="" /></a>
-    <a href="https://youtube.com/"><img src="../../public/images/youtube.png" alt="" /></a>
-    <a href="https://web.whatsapp.com/"><img src="../../public/images/whatsapp.png" alt="" /></a>
-    </div>
-    <p className='boom'>AgriGrow © 2024 Privacy Policy</p>
-    <ul>
-        <li><Link to={'/home'}>Home</Link></li>
-        <li><Link to={'/'}>About Us</Link></li>
-        <li><Link to={'/'}>Testimonials</Link></li>
-        <li><Link to={'/'}>Contact Us</Link></li>
-        <li ><Link to={'/register'}>Sign Up</Link></li>
-        <li ><Link to={'/login'}>Log In</Link></li>
-        </ul>
-    </footer>
   </>
   )
 }
