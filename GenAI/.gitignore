@@ -1,0 +1,6 @@
+.venv
+__pycache__
+llama-2-7b-chat.ggmlv3.q4_0.bin
+.env
+AgriGrow_Chatbot.egg-info
+data

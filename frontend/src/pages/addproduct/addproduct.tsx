@@ -43,8 +43,8 @@ export const Addproduct = () => {
 
 
   return (
-    <>
-  <Navbar/>
+    <> 
+ <Navbar />
   <div className="part3">
     <button className="A">Farmer</button>
     <button className="B">Farmer</button>
@@ -79,6 +79,7 @@ export const Addproduct = () => {
     </div>
     </div>
     <Footer/>
+
   </>
   )
 }

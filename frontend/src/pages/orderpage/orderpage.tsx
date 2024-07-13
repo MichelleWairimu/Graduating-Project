@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Navbar } from "../../components/Navbar"
 import "./orderpage.css"
 import { Footer } from "../../components/Footer";
 
@@ -25,23 +26,7 @@ export const Orderpage = () => {
 
   return (
     <>
-    <div className='header3'>
-    <div className='header4'>
-  <a href=""><img src="../../public/images/p2.png" alt="" /></a>
-    <nav>
-    <div className="nav-link">
-    <ul>
-      <li><a href="">Home</a></li>
-      <li><a href="">About Us</a></li>
-      <li><a href="">Testimonials</a></li>
-      <li><a href="">Contact Us</a></li>
-      <li ><a href="">Sign up</a></li>
-      <li ><a href="">Log In</a></li>
-    </ul>
-    </div>
-    </nav>
-  </div>
-  </div>
+    <Navbar />
   <div className="part3">
     <button className="A">Farmer</button>
     <button className="B">Farmer</button>
