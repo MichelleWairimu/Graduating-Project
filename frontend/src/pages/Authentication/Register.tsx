@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { RegisterState } from "./authStateType"
+import { Navbar } from "../../components/Navbar"
 
 
 export const Register = () => {
@@ -72,6 +73,8 @@ export const Register = () => {
     }
 
     return(
+        <>
+        <Navbar />
         <div className="authentication">
            <h2>Register and Start Trading Today</h2>
            <div className="form-container">
@@ -147,6 +150,6 @@ export const Register = () => {
 
            </div>
         </div>
-
+        </>
     )
 }
