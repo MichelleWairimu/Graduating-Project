@@ -18,13 +18,13 @@ app.use(cors())
 registerRoutes(app)
 
 //connection to database
-/* const uri:string = process.env.MONGO_URI || 'mongodb+srv://Graduating-project:HMut9cSQlnkiifjP@agrigrow.xxtjpnx.mongodb.net/?retryWrites=true&w=majority&appName=Agrigrow';
- */
-const mongo:string = 'mongodb+srv://tonnel:tonnel@cluster0.eyeqbwd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const uri:string = process.env.MONGO_URI || 'mongodb+srv://Graduating-project:HMut9cSQlnkiifjP@agrigrow.xxtjpnx.mongodb.net/?retryWrites=true&w=majority&appName=Agrigrow';
+
+/* const mongo:string = 'mongodb+srv://tonnel:tonnel@cluster0.eyeqbwd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'; */
 
 (async function connectToDb() {
     try{
-        await mongoose.connect(mongo)
+        await mongoose.connect(uri)
 
         console.log('Connection to database successful')
     } catch (error) {
@@ -32,11 +32,11 @@ const mongo:string = 'mongodb+srv://tonnel:tonnel@cluster0.eyeqbwd.mongodb.net/?
     }
 }) ();
 
-
+/* 
 // MongoDB Connection
 mongoose.connect( mongo,)
     .then(() => console.log('MongoDB connected'))
-    .catch(err => console.error('MongoDB connection error:', err));
+    .catch(err => console.error('MongoDB connection error:', err)); */
 
 // Schema and Model
 const productSchema = new mongoose.Schema({

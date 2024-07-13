@@ -9,15 +9,23 @@ import { Navbar } from '../../components/Navbar'
 export const HomePage = () => {
 
     const persona = useSelector((state: any) => state.auth.persona)
+    const isLoggedIn = useSelector((state:any) => state.auth.isLoggedIn)
 
     return (
         <div>
             <Navbar />
-            {persona === "Farmer" ? (
-                < FarmerHome/>
+          {isLoggedIn ? (
+            persona === 'Farmer' ? (
+                <FarmerHome />
             ) : persona === 'Buyer' ? (
-                < BuyerHome/>
-            ): ( <DefaultHome/> )}
+                <BuyerHome />
+            ): (
+                <DefaultHome />
+            )
+          ): (
+            <DefaultHome />
+          )}
+            
         </div>
     )
 }

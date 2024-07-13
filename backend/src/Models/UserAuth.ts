@@ -1,6 +1,7 @@
 import mongoose, {Schema, Document} from "mongoose";
 import { IUser } from "../Types/UserAuthType";
 
+
 export interface IUserModel extends IUser, Document {};
 
 const UserSchema = new Schema ({
