@@ -1,7 +1,8 @@
 from flask import Flask, render_template, jsonify, request
 from helper import download_hugging_face_embeddings
-from langchain_community.vectorstores import Pinecone
+from langchain_pinecone import PineconeVectorStore  # Updated import
 import pinecone
+from pinecone import Pinecone, ServerlessSpec
 from langchain.prompts import PromptTemplate
 from langchain_community.llms import CTransformers
 from langchain.chains import RetrievalQA
@@ -20,23 +21,32 @@ PINECONE_API_ENV = os.environ.get('PINECONE_API_ENV')
 embeddings = download_hugging_face_embeddings()
 
 #Initializing the Pinecone
-pinecone.init(api_key=PINECONE_API_KEY,
+pinecone_instance = Pinecone(api_key=PINECONE_API_KEY,
               environment=PINECONE_API_ENV)
 
-index_name="medical-bot"
+index_name="graduating-project"
 
+if index_name not in pinecone_instance.list_indexes().names():
+    pinecone_instance.create_index(
+        name=index_name,
+        dimension=1536,  # Example dimension, replace with actual
+        metric='euclidean',
+        spec=ServerlessSpec(cloud='aws', region=PINECONE_API_ENV)
+    )
+    
 #Loading the index
-docsearch=Pinecone.from_existing_index(index_name, embeddings)
+docsearch=PineconeVectorStore.from_existing_index(index_name, embeddings)
 
 
 PROMPT=PromptTemplate(template=prompt_template, input_variables=["context", "question"])
 
 chain_type_kwargs={"prompt": PROMPT}
 
-llm=CTransformers(model="model/llama-2-7b-chat.ggmlv3.q4_0.bin",
-                  model_type="llama",
-                  config={'max_new_tokens':512,
-                          'temperature':0.8})
+llm=CTransformers(
+    model="model/llama-2-7b-chat.ggmlv3.q4_0.bin",
+    model_type="llama",
+    config={'max_new_tokens':512,'temperature':0.8}
+    )
 
 
 qa=RetrievalQA.from_chain_type(
@@ -56,16 +66,16 @@ def index():
 
 @app.route("/get", methods=["GET", "POST"])
 def chat():
-    msg = request.form["msg"]
-    input = msg
-    print(input)
-    result=qa({"query": input})
-    print("Response : ", result["result"])
-    return str(result["result"])
-
-
+    try:
+        msg = request.form["msg"]
+        input_query = {"query": msg} 
+        print("Input Query:", input_query)
+        result = qa.invoke(input_query)
+        print("Response : ", result["result"])
+        return str(result["result"])
+    except Exception as e:
+        print(f"Error in /get endpoint: {e}")
+        return jsonify({"error": str(e)}), 500  
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port= 8080, debug= True)
-
-

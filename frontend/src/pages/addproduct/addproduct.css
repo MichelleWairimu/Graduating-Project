@@ -18,6 +18,7 @@ body{
     margin-left: 25%;
     margin-top: 10px;
     border-radius: 10px;
+    transition: 0.5s ease;
 }
 .B{
     padding: 10px 30px;
@@ -30,11 +31,9 @@ body{
     border-radius: 10px;
     transition: 0.5s ease;
 }
-button:hover{
-    color: #279639;
-    background-color: white;
-    border: 2px solid #279639;
-}
+ button:hover{
+    box-shadow: 10px 10px 0px rgb(9, 251, 9);
+ }
 .weather{
     border: 1px solid #279639;
     max-width: 450px;
@@ -173,7 +172,7 @@ form h2{
     color: #279639;
  }
 
- button{
+ .Dodo{
     padding: 10px 30px;
     border: none;
     background-color: #279639;
@@ -182,4 +181,8 @@ form h2{
     font-size: 20px;
     margin-left: 150px;
     margin-top: 20px;
+    transition: 0.5s ease;
+ }
+ .Dodo:hover{
+    box-shadow: 10px 10px 0px rgb(9, 251, 9);
  }
