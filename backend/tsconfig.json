@@ -1,14 +1,13 @@
 {
     "compilerOptions": {
-        "target": "es2016",
-        "jsx": "preserve",
+        "target": "es6",
         "module": "commonjs",
-        "allowJs": true,
         "outDir": "./dist",
-        "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true,
+        "rootDir": "./src",
         "strict": true,
+        "esModuleInterop": true,
         "skipLibCheck": true
     },
-    "exclude": ["node_modules", "dist", "frontend"]
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
 }
