@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { RegisterState } from "./authStateType"
 
 
@@ -12,6 +12,7 @@ export const Register = () => {
     const [persona, setPersona] = useState('')
     const [error, setError] = useState('')
     const [success, setSuccess] = useState(false)
+    const navigate = useNavigate()
 
    
 
@@ -48,7 +49,7 @@ export const Register = () => {
             }
         })
     
-        .then( response => response.json()) 
+        .then( response => response.json())  
         .then((data: RegisterState ) => {
             setSuccess(true)
             setError('')
@@ -58,6 +59,8 @@ export const Register = () => {
             setPassword('')
             setPersona('')
             console.log(`User registered successfully: ${data.firstName} ${data.lastName}`)
+            navigate('/login')
+            
         })
         .catch(error => {
             setError(`Error registering user: ${error}`)

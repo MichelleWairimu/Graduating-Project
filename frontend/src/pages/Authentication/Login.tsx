@@ -2,6 +2,8 @@ import axios from "axios"
 import React, {useState} from "react"
 import { Link } from "react-router-dom"
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from "react-redux"
+import { login } from "../../Reducers/authReducer"
 
 
 export const Login: React.FC = () => {
@@ -10,6 +12,7 @@ export const Login: React.FC = () => {
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value)
@@ -28,6 +31,8 @@ export const Login: React.FC = () => {
         try {
             const response = await axios.post('http://localhost:5000/api/login', {email, password})
             if (response.status === 200){
+                const {persona} = response.data
+                dispatch(login(persona))
                 navigate('/home')
             } else {
                 setError('Invalid credentials')
