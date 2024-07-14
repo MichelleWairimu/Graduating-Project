@@ -6,7 +6,8 @@ import { Landingpage } from './pages/landingpage/landingpage'
 import { Orderpage } from './pages/orderpage/orderpage'
 import { Addproduct } from './pages/addproduct/addproduct'
 import { Contact } from './pages/ContactPage/Contact'
-import { Profilepage } from './components/Profilepage'
+import { CropCard } from './pages/cards/Cards'
+import {BuyerHome} from './pages/Home/BuyerHome'
 
 
 
@@ -23,7 +24,8 @@ function App() {
       <Route path='/contact' element={ <Contact />}/>
       <Route path='/register' element={ <Register />}/>
       <Route path='/login' element={ <Login />}/>
-      <Route path='/profile/:id' element={<Profilepage/>}/>
+      <Route path='/cards' element={ <CropCard/>}/>
+      <Route path="/buyerhome" element={<BuyerHome />} />
     </Routes>
     </div>
     <Footer />

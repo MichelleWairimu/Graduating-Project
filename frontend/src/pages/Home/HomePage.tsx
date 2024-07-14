@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useSelector } from 'react-redux'
 import './HomePage.css'
 import { DefaultHome } from './DefaultHome'
-import { BuyerHome } from './BuyerHome'
+import  {BuyerHome}  from './BuyerHome'
 import { FarmerHome } from './FarmerHome'
-import { Navbar } from '../../components/Navbar'
+
 
 
 export const HomePage = () => {
@@ -12,11 +13,13 @@ export const HomePage = () => {
     const isLoggedIn = useSelector((state:any) => state.auth.isLoggedIn)
 
     return (
+
+        <>
         <div>
-            <Navbar />
-          {isLoggedIn ? (
-            persona === 'Farmer' ? (
-                <FarmerHome />
+             <div>
+            {persona === "Farmer" ? (
+                < FarmerHome/>
+
             ) : persona === 'Buyer' ? (
                 <BuyerHome />
             ): (
@@ -27,5 +30,8 @@ export const HomePage = () => {
           )}
             
         </div>
+        </div>
+        </>
+
     )
 }
