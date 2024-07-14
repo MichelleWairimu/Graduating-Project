@@ -1,43 +1,46 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useEffect, useState } from 'react';
-import { Navbar } from '../../components/Navbar';
-import'./buyerhome.css'
+// src/pages/BuyerHome.tsx
+
+import React from 'react';
+import { useProductContext } from '../context/productcontext';
+import { Navigate } from '../../components/navigat';
+import './buyerhome.css';
 
 export const BuyerHome: React.FC = () => {
-    const [data, setData] = useState<any>(null);
+  const { products, removeProduct, addToMyList } = useProductContext();
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch('http://localhost:5000/buyerhome');
-            if (response.ok) {
-                const result = await response.json();
-                setData(result);
-            } else {
-                console.error('No data found');
-            }
-        };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleAddToMyList = (product: any) => {
+    addToMyList(product);
+    alert(`${product.name} added to My List!`);
+  };
 
-        fetchData();
-    }, []);
-
-    return (
-      <>
-      <Navbar/>
-        <div className='buy'>
-            <h1>Buyer Home</h1>
-            {data ? (
-                <div>
-                    <h2>Details</h2>
-                    <p><strong>Description:</strong> {data.description}</p>
-                    <p><strong>Location:</strong> {data.location}</p>
-                    <p><strong>Harvest Time:</strong> {data.harvestTime}</p>
-                    <p><strong>Price:</strong> {data.price}</p>
-                    <p><strong>Contact:</strong> {data.contact}</p>
-                </div>
-            ) : (
-                <p className='buy1'>No data available.</p>
+  return (
+    <div>
+      <Navigate />
+      <h1 className='buy1'>Available Farming Products</h1>
+      <ul className="product-list">
+        {products.map((product, index) => (
+          <li key={index} className="product-item">
+            <h3>{product.name}</h3>
+            {product.image && (
+              <img
+                src={product.image}
+                alt={product.name}
+                className="product-image"
+              />
             )}
-        </div>
-        </>
-    );
+            <p>{product.description}</p>
+            <p>Price: ${product.price}</p>
+            <p>Quantity: {product.quantity}</p>
+            <button className="delete-button" onClick={() => removeProduct(index)}>
+              No Interest
+            </button>
+            <button className="add-button" onClick={() => handleAddToMyList(product)}>
+              Add to My List
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };

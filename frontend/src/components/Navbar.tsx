@@ -15,7 +15,8 @@ export const Navbar =() => {
         <div>
         <div className='header3'>
         <div className='header4'>
-        <a href=""><img src="../../public/images/p2.png" alt="" /></a>
+      
+        <Link to={'/'}>  <img src="../../public/images/p2.png" alt="" /></Link>
             <nav>
             <div className="nav-link">
             <ul>
