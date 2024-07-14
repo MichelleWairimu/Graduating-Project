@@ -1,7 +1,7 @@
 import { Navbar } from '../../components/Navbar'
 import React, { useState } from 'react';
-/* import './Contact.css'; // Make sure to create this CSS file for styling
- */
+ import './contact.css'; 
+
 export const Contact: React.FC = () => {
     const [formData, setFormData] = useState({
         name: '',

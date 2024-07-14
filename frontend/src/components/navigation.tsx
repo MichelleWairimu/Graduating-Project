@@ -6,7 +6,7 @@ export const Navigation = () => {
     <div>
       <div className='header3'>
         <div className='header4'>
-          <Link to={'/'}>
+          <Link to={'/defhome'}>
             <img src="../../public/images/p2.png" alt="Logo" />
           </Link>
           <nav>
