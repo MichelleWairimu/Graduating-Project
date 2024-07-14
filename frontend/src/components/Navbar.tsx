@@ -1,8 +1,17 @@
 import { Link } from 'react-router-dom'
 import './Navbar.css'
 
+import { Link } from 'react-router-dom'
+import { useSelector} from 'react-redux'
+
 export const Navbar =() => {
+   /*  const persona = useSelector((state: any) => state.auth.persona); */
+    const userId = useSelector((state: any) => state.auth.userId);
+    const isLoggedIn = useSelector((state: any) => state.auth.isLoggedIn);
+
     return(
+        
+        <div>
         <div>
         <div className='header3'>
         <div className='header4'>

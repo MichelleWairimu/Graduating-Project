@@ -10,6 +10,7 @@ import { FarmerHome } from './FarmerHome'
 export const HomePage = () => {
 
     const persona = useSelector((state: any) => state.auth.persona)
+    const isLoggedIn = useSelector((state:any) => state.auth.isLoggedIn)
 
     return (
 
@@ -18,9 +19,16 @@ export const HomePage = () => {
              <div>
             {persona === "Farmer" ? (
                 < FarmerHome/>
+
             ) : persona === 'Buyer' ? (
-                < BuyerHome/>
-            ): ( <DefaultHome/> )}
+                <BuyerHome />
+            ): (
+                <DefaultHome />
+            )
+          ): (
+            <DefaultHome />
+          )}
+            
         </div>
         </div>
         </>
