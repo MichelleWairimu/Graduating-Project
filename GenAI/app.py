@@ -1,82 +1,38 @@
-from flask import Flask, render_template, jsonify, request
-from helper import download_hugging_face_embeddings
-from langchain_pinecone import PineconeVectorStore  # Updated import
-import pinecone
-from pinecone import Pinecone, ServerlessSpec
-from langchain.prompts import PromptTemplate
-from langchain_community.llms import CTransformers
-from langchain.chains import RetrievalQA
-from dotenv import load_dotenv
-from prompt import *
-import os
+from flask import Flask, render_template, request, redirect, url_for
+from agric_bot import AgricultureBot
+from gemini_api import GeminiAPI
 
 app = Flask(__name__)
 
-load_dotenv()
+# Initialize the Agriculture Bot and Agriculture API
+agriculture_bot = AgricultureBot()
+gemini_api = GeminiAPI()
 
-PINECONE_API_KEY = os.environ.get('PINECONE_API_KEY')
-PINECONE_API_ENV = os.environ.get('PINECONE_API_ENV')
-
-
-embeddings = download_hugging_face_embeddings()
-
-#Initializing the Pinecone
-pinecone_instance = Pinecone(api_key=PINECONE_API_KEY,
-              environment=PINECONE_API_ENV)
-
-index_name="graduating-project"
-
-if index_name not in pinecone_instance.list_indexes().names():
-    pinecone_instance.create_index(
-        name=index_name,
-        dimension=1536,  # Example dimension, replace with actual
-        metric='euclidean',
-        spec=ServerlessSpec(cloud='aws', region=PINECONE_API_ENV)
-    )
-    
-#Loading the index
-docsearch=PineconeVectorStore.from_existing_index(index_name, embeddings)
-
-
-PROMPT=PromptTemplate(template=prompt_template, input_variables=["context", "question"])
-
-chain_type_kwargs={"prompt": PROMPT}
-
-llm=CTransformers(
-    model="model/llama-2-7b-chat.ggmlv3.q4_0.bin",
-    model_type="llama",
-    config={'max_new_tokens':512,'temperature':0.8}
-    )
-
-
-qa=RetrievalQA.from_chain_type(
-    llm=llm, 
-    chain_type="stuff", 
-    retriever=docsearch.as_retriever(search_kwargs={'k': 2}),
-    return_source_documents=True, 
-    chain_type_kwargs=chain_type_kwargs)
-
-
-
-@app.route("/")
+@app.route('/')
 def index():
-    return render_template('chat.html')
+    return render_template('index.html', agriculture_advice=None, agriculture_response=None)
 
-
-
-@app.route("/get", methods=["GET", "POST"])
+@app.route('/chat', methods=['POST'])
 def chat():
-    try:
-        msg = request.form["msg"]
-        input_query = {"query": msg} 
-        print("Input Query:", input_query)
-        result = qa.invoke(input_query)
-        print("Response : ", result["result"])
-        return str(result["result"])
-    except Exception as e:
-        print(f"Error in /get endpoint: {e}")
-        return jsonify({"error": str(e)}), 500  
+    if request.method == 'POST':
+        user_input = request.form['user_input']
+        if user_input:
+            agriculture_advice, agriculture_response = get_response(user_input)
+            return render_template('index.html', agriculture_advice=agriculture_advice, agriculture_response=agriculture_response)
+        else:
+            return "Please enter a question or describe an agricultural concern."
 
-if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8080, debug=True, use_reloader=False)
+@app.route('/main_app')
+def main_app():
+    return redirect("https://www.example.com")
 
+@app.route('/subscribe')
+def subscribe():
+    return redirect("https://agrigrow-signup.onrender.com")
+
+def get_response(user_input):
+    agriculture_advice = agriculture_bot.get_agricultural_advice(user_input)
+    agriculture_response = gemini_api.generate_response(user_input)
+    return agriculture_advice, agriculture_response
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)

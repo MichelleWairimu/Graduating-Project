@@ -21,6 +21,7 @@ export const Profilepage: React.FC = () => {
             try{
                 const response = await axios.get(`http://localhost:5000/api/profile/${id}`)
                 setUser(response.data)
+                console.log(response)
             }catch (error) {
                 setError('Error fetching user data')
                 console.error(error)
@@ -45,3 +46,4 @@ export const Profilepage: React.FC = () => {
         </div>
     )
 }
+

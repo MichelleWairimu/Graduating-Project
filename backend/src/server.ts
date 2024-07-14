@@ -2,7 +2,6 @@ import express, { Express, Request, Response} from 'express'
 import cors from 'cors'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
-const nodemailer = require('nodemailer');
 import { registerRoutes } from './Routes'
 
 dotenv.config()
@@ -112,41 +111,7 @@ app.delete('/products/:id', async (req, res) => {
     }
 });
 
-// Email configuration
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: "t8985584@gmail.com", // Your email
-      pass: "toti1234", // Your email password or app password
-    },
-  });
-  
-  // POST endpoint to handle contact form submissions
-  app.post('/contact', (req, res) => {
-    const { name, email, message } = req.body;
-  
-    const mailOptions = {
-      from: email,
-      to: 'totimbugz@gmail.com', // Your email to receive submissions
-      subject: `Contact Form Submission from ${name}`,
-      text: `You have received a new message from ${name} (${email}):\n\n${message}`,
-    };
-  
-    transporter.sendMail(mailOptions, (error: string, info: { response: string; }) => {
-      if (error) {
-        return res.status(500).send('Error sending email: ' + error);
-      }
-      res.status(200).send('Email sent: ' + info.response);
-    });
-  });
-app.get('/buyerhome', async (req, res) => {
-    try {
-        const products = await Product.find(); // Assuming you have a Product model
-        res.json(products);
-    } catch (error) {
-        res.status(500).json({ error: 'Failed to fetch products' });
-    }
-});
+
 
 
 app.listen(PORT, ()=> {

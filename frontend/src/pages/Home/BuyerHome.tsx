@@ -18,8 +18,9 @@ export const BuyerHome: React.FC = () => {
   }, [persona, navigate]);
 
   return (
-    <div>
+    <div>    
       <Navigate />
+      <h1 className='intromsg'>Welcome to Agrigrow. Your E-commerce website for all agricultural products</h1>
       <h1 className='buy1'>Available Farming Products</h1>
       <ul className="product-list">
         {products.map((product, index) => (
@@ -44,6 +45,5 @@ export const BuyerHome: React.FC = () => {
           </li>
         ))}
       </ul>
-    </div>
   );
 };

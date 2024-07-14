@@ -15,15 +15,17 @@ export const HomePage = () => {
         return <DefaultHome />;
     }
 
-    return (
-        <div>
-            {persona === "Farmer" ? (
-                <FarmerHome />
-            ) : persona === 'Buyer' ? (
-                <BuyerHome />
-            ) : (
-                <DefaultHome /> // Fallback if persona doesn't match
-            )}
-        </div>
-    );
-};
+
+  if (!isLoggedIn) {
+    return <DefaultHome/>
+  }
+
+  switch(persona){
+    case 'Farmer':
+        return <FarmerHome/>
+    case 'Buyer': 
+        return <BuyerHome/>
+    default:
+        return <DefaultHome/>
+    }
+}
