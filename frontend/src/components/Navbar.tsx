@@ -16,13 +16,13 @@ export const Navbar =() => {
             <ul>
             <li><Link to={'/'}>Home</Link></li>
         <li><Link to={'/contact'}>Contact Us</Link></li>
-        <li ><Link to={'/register'}>Sign Up</Link></li>
-        <li ><Link to={'/login'}>Log In</Link></li>
+       {!isLoggedIn && <li ><Link to={'/register'}>Sign Up</Link></li>}
+        {!isLoggedIn && <li ><Link to={'/login'}>Log In</Link></li>}
             </ul>
             </div>
             </nav>
         </div>
         </div>
         </div>
-    )
-}
+        </div>
+    )}
