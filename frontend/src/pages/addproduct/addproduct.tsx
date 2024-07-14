@@ -12,7 +12,7 @@ export const Addproduct = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const newProduct = { description, location, harvestTime, price, contact };
 
@@ -33,9 +33,8 @@ export const Addproduct = () => {
         setHarvestTime('');
         setPrice('');
         setContact('');
-
-        // Navigate to BuyerHome to fetch the data
-        navigate('/buyerhome');
+        // Navigate to Buy page
+        navigate('/home');
       } else {
         const errorData = await response.json();
         console.error('Failed to add product:', errorData.error);
@@ -53,17 +52,17 @@ export const Addproduct = () => {
           <form onSubmit={handleSubmit}>
             <h2>Details</h2>
             <label htmlFor="description">Description</label>
-            <input type="text" id="description" name="description" onChange={e => setDescription(e.target.value)} required />
+            <input type="text" id="description" onChange={e => setDescription(e.target.value)} required />
             <label htmlFor="location">Location</label>
-            <input type="text" id="location" name="location" onChange={e => setLocation(e.target.value)} required />
+            <input type="text" id="location" onChange={e => setLocation(e.target.value)} required />
             <div className="flex">
               <label className="C" htmlFor="harvesttime">Harvest Time</label>
               <label className="D" htmlFor="price">Price</label>
             </div>
-            <input className="E" type="text" id="harvesttime" onChange={e => setHarvestTime(e.target.value)} name="harvesttime" required />
-            <input className="F" type="text" id="price" onChange={e => setPrice(e.target.value)} name="price" required />
+            <input className="E" type="text" id="harvesttime" onChange={e => setHarvestTime(e.target.value)} required />
+            <input className="F" type="text" id="price" onChange={e => setPrice(e.target.value)} required />
             <label htmlFor="contact">Contact</label>
-            <input type="tel" id="contact" onChange={e => setContact(e.target.value)} name="contact" required />
+            <input type="tel" id="contact" onChange={e => setContact(e.target.value)} required />
             <button type="submit" className="Dodo">Post</button>
           </form>
         </div>

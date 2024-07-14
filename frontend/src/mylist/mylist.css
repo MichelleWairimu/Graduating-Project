@@ -1,0 +1,61 @@
+.mylist-title {
+    text-align: center;
+    font-size: 2rem;
+    margin: 30px 0;
+    color: #2c3e50;
+  }
+  
+  .mylist {
+    list-style-type: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .mylist-item {
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #ecf0f1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .mylist-item h3{
+    font-size: 30px;
+    text-align: center;
+  }
+  .mylist-item p{
+    font-size: 23px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .mylist-image {
+    width: 80%;
+    max-width:400px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+    top:0%;
+    bottom: -150px;
+    left:47%;
+    position: relative;
+    transform: translate(-50%,-50%);
+    margin: 20px;
+  }
+  
+  .remove-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 340px;
+  }
+  
+  .remove-button:hover {
+    background-color: #c0392b;
+  }
+  

@@ -13,9 +13,10 @@ import './landingpage.css'
       <div className="nav-links">
       <ul>
         <li><Link to={'/home'}>Home</Link></li>
-        <li><Link to={'/'}>Contact Us</Link></li>
+        <li><Link to={'/contact'}>Contact Us</Link></li>
         <li ><Link to={'/register'}>Sign Up</Link></li>
         <li ><Link to={'/login'}>Log In</Link></li>
+        <li><Link to={'/sell'}>Sell</Link></li>
       </ul>
       </div>
       </nav>

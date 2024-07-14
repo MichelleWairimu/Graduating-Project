@@ -139,6 +139,14 @@ app.post('/contact', (req, res) => {
         res.status(200).send({ message: 'Email sent successfully' });
     });
 });
+app.get('/buyerhome', async (req, res) => {
+    try {
+        const products = await Product.find(); // Assuming you have a Product model
+        res.json(products);
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to fetch products' });
+    }
+});
 
 
 app.listen(PORT, ()=> {
