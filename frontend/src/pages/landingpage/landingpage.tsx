@@ -11,10 +11,6 @@ import './landingpage.css'
       <nav>
       <div className="nav-links">
       <ul>
-        <li><Link to={'/home'}>Home</Link></li>
-        <li><Link to={'/'}>About Us</Link></li>
-        <li><Link to={'/'}>Testimonials</Link></li>
-        <li><Link to={'/'}>Contact Us</Link></li>
         <li ><Link to={'/register'}>Sign Up</Link></li>
         <li ><Link to={'/login'}>Log In</Link></li>
       </ul>
