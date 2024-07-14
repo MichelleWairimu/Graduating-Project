@@ -2,6 +2,7 @@ import express, { Express, Request, Response} from 'express'
 import cors from 'cors'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
+const nodemailer = require('nodemailer');
 import { registerRoutes } from './Routes'
 
 dotenv.config()
@@ -109,6 +110,34 @@ app.delete('/products/:id', async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: 'Failed to remove product' });
     }
+});
+
+// Nodemailer configuration
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'totimbugz@gmail.com', // Replace with your email
+        pass: 'Ivynzilani12', // Replace with your email password or app password
+    },
+});
+
+// Contact form endpoint
+app.post('/contact', (req, res) => {
+    const { name, email, message } = req.body;
+
+    const mailOptions = {
+        from: email,
+        to: 'totimbugz@gmail.com',
+        subject: `New Contact Form Submission from ${name}`,
+        text: `You have received a new message from the contact form.\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`,
+    };
+
+    transporter.sendMail(mailOptions, (error: any, info: any) => {
+        if (error) {
+            return res.status(500).send({ error: 'Failed to send email' });
+        }
+        res.status(200).send({ message: 'Email sent successfully' });
+    });
 });
 
 

@@ -110,7 +110,7 @@ button:hover{
 }
 .pic1{
     width: 120px;
-    top:52%;
+    top:40%;
     left:37%;
     position: absolute;
     transform: translate(-50%,-50%);

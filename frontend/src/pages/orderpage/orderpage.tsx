@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Navbar } from "../../components/Navbar"
 import "./orderpage.css"
-import { Footer } from "../../components/Footer";
+import { Navigation } from "../../components/navigation";
+/* import { Footer } from "../../components/Footer"; */
 
 
 export const Orderpage = () => {
@@ -26,12 +26,8 @@ export const Orderpage = () => {
 
   return (
     <>
-    <Navbar />
-  <div className="part3">
-    <button className="A">Farmer</button>
-    <button className="B">Farmer</button>
-  </div>
-  <div className="weather">
+    <Navigation />
+{/*   <div className="weather">
     <h2>Meru</h2>
     <img className="pic1"  src="../../public/images/icon4.png" alt="" />
     <img className="pic2" src="../../public/images/icon6.png" alt="" />
@@ -39,7 +35,7 @@ export const Orderpage = () => {
     <h3>June 9th</h3>
     <h4>23 Degrees</h4>
     <h5>Strong winds</h5>
-  </div>
+  </div> */}
   <div className="harvests">
         <div className="harvest1">
           <form onSubmit={handleTrack}>
@@ -69,7 +65,6 @@ export const Orderpage = () => {
         </div>
       </div>
     
-  <Footer/>
   </>
   )
 }
