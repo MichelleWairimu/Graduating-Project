@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './farmer.css';
 import { Link, useNavigate } from 'react-router-dom';
 import'../../components/navigat.css'
+import { useSelector } from 'react-redux';
 
 interface Product {
   _id: string;
@@ -53,9 +54,12 @@ export const FarmerHome: React.FC = () => {
   
     const navigate = useNavigate();
   
+  const persona = useSelector((state:any) => state.auth.persona)
+
     const handleLogout = () => {
       // Clear user authentication data
-      localStorage.removeItem('userToken'); // Adjust according to your auth mechanism
+      {persona &&  localStorage.removeItem('persona');}
+      // Adjust according to your auth mechanism
       // Redirect to the login page
       navigate('/home'); // Adjust to your login route
     };
@@ -71,14 +75,16 @@ export const FarmerHome: React.FC = () => {
               <ul>
               <li><Link to={'/home'}>Home</Link></li>
                 <li><Link to={'/addproduct'}>Add Product</Link></li>
-                <li><Link to={'/order'}>Order</Link></li>
                 <li><Link to={'/sell'}>Sell</Link></li>
-                <button onClick={handleLogout} className="logout-button">
-                    Logout
-                  </button>
+             
               </ul>
             </div>
+           
           </nav>
+          <button onClick={handleLogout} className="logout-button">
+                    Logout
+            </button>
+         
         </div>
       </div>
       <div className='homepage'>
