@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom'
 import './Navbar.css'
-
-import { Link } from 'react-router-dom'
 import { useSelector} from 'react-redux'
 
 export const Navbar =() => {
    /*  const persona = useSelector((state: any) => state.auth.persona); */
-    const userId = useSelector((state: any) => state.auth.userId);
+   /*  const userId = useSelector((state: any) => state.auth.userId); */
     const isLoggedIn = useSelector((state: any) => state.auth.isLoggedIn);
 
     return(
@@ -22,13 +20,13 @@ export const Navbar =() => {
             <ul>
             <li><Link to={'/home'}>Home</Link></li>
         <li><Link to={'/contact'}>Contact Us</Link></li>
-        <li ><Link to={'/register'}>Sign Up</Link></li>
-        <li ><Link to={'/login'}>Log In</Link></li>
+       {!isLoggedIn && <li ><Link to={'/register'}>Sign Up</Link></li>}
+        {!isLoggedIn && <li ><Link to={'/login'}>Log In</Link></li>}
             </ul>
             </div>
             </nav>
         </div>
         </div>
         </div>
-    )
-}
+        </div>
+    )}
