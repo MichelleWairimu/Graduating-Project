@@ -11,7 +11,7 @@ import {BuyerHome} from './pages/Home/BuyerHome'
 import { Buy } from './pages/Home/buy'
 import { SellPage } from './pages/sell/sell'
 import { ProductProvider } from './pages/context/productcontext'
-import { MyList } from './mylist/mylistpage'
+import { MyList } from './pages/mylist/mylistpage'
 import { DefaultHome } from './pages/Home/DefaultHome'
 
 

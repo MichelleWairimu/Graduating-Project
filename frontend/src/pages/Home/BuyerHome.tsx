@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useProductContext } from '../context/productcontext';
 import { Navigate } from '../../components/navigat';
 import { useSelector } from 'react-redux';
@@ -7,41 +7,18 @@ import { useNavigate } from 'react-router-dom';
 import './buyerhome.css';
 
 export const BuyerHome: React.FC = () => {
-  const { products, removeProduct } = useProductContext();
+  const { products, removeProduct, addToMyList } = useProductContext();
   const navigate = useNavigate();
   const persona = useSelector((state: any) => state.auth.persona);
-  const [myList, setMyList] = useState<any[]>([]); // State for the list of saved products
 
   useEffect(() => {
-    // Check if persona is not 'Buyer' (or not logged in)
     if (persona !== 'Buyer') {
-      navigate('/defhome'); // Redirect to DefaultHome or desired route
-    }
-
-    // Load saved products from local storage
-    const savedProducts = localStorage.getItem('myList');
-    if (savedProducts) {
-      setMyList(JSON.parse(savedProducts));
+      navigate('/defhome'); // Redirect if not a buyer
     }
   }, [persona, navigate]);
 
-  const handleAddToMyList = (product: any) => {
-    const updatedList = [...myList, product];
-    setMyList(updatedList);
-    localStorage.setItem('myList', JSON.stringify(updatedList)); // Save to local storage
-    alert(`${product.name} added to My List!`);
-  };
-
-  const handleRemoveFromMyList = (index: number) => {
-    const updatedList = myList.filter((_, i) => i !== index);
-    setMyList(updatedList);
-    localStorage.setItem('myList', JSON.stringify(updatedList)); // Update local storage
-  };
-
   return (
-    <div>
-     
-     
+    <div>    
       <Navigate />
       <h1 className='intromsg'>Welcome to Agrigrow. Your E-commerce website for all agricultural products</h1>
       <h1 className='buy1'>Available Farming Products</h1>
@@ -62,38 +39,11 @@ export const BuyerHome: React.FC = () => {
             <button className="delete-button" onClick={() => removeProduct(index)}>
               No Interest
             </button>
-            <button className="add-button" onClick={() => handleAddToMyList(product)}>
+            <button className="add-button" onClick={() => addToMyList(product)}>
               Add to My List
             </button>
           </li>
         ))}
       </ul>
-
-      <div className='navtoorder'>
-        <h1>Place your first order</h1>
-       <a href="/order" className='orderlink'>Order Here</a>
-      </div>
-
-
-{/*       <h2>My List</h2> */}
-      <ul className="my-list">
-        {myList.map((item, index) => (
-          <li key={index} className="my-list-item">
-            <h3>{item.name}</h3>
-            {item.image && (
-              <img
-                src={item.image}
-                alt={item.name}
-                className="product-image"
-              />
-            )}
-            <button className="remove-button" onClick={() => handleRemoveFromMyList(index)}>
-              Remove
-            </button>
-          </li>
-        ))}
-      </ul>
-
-    </div>
   );
 };
