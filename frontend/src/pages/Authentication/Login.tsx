@@ -32,8 +32,8 @@ export const Login: React.FC = () => {
         try {
             const response = await axios.post('http://localhost:5000/api/login', {email, password})
             if (response.status === 200){
-                const {persona} = response.data
-                dispatch(login(persona))
+                const {persona, _id} = response.data
+                dispatch(login({persona, userId: _id}))
                 navigate('/home')
             } else {
                 setError('Invalid credentials')
@@ -47,10 +47,7 @@ export const Login: React.FC = () => {
         <>
         <Navbar />
         <div className="authentication">
-            <div className="button-slider">
-            <Link to={'/register'} className="Signup-button">Sign Up</Link>
-            <Link to={'/login'} className="Login-button">Log In</Link>
-        </div>
+        
         <form className="login-form" onSubmit={handleLogin}>
             <h3>Log In</h3>
             <div className="email-input">
@@ -60,6 +57,7 @@ export const Login: React.FC = () => {
                    placeholder="example@company.com"
                    value={email}
                    onChange={handleEmailChange}
+                   required
                 />
             </div>
             <div className="email-input">
@@ -68,10 +66,12 @@ export const Login: React.FC = () => {
                    type="password" 
                    value={password}
                    onChange={handlePasswordChange}
+                   required
                 />
             </div>
             <button type="submit">Log In</button>
             {error && <div style={{color: 'red'}}>{error}</div>}
+            <p>Don't have an account? <Link to={'/register'} >Sign up here</Link></p>
           
         </form>
        </div>

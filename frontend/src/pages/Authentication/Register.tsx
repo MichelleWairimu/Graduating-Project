@@ -78,10 +78,7 @@ export const Register = () => {
         <div className="authentication">
            <h2>Register and Start Trading Today</h2>
            <div className="form-container">
-            <div className="button-slider">
-                <Link to={'/register'} className="Signup-button">Sign Up</Link>
-                <Link to={'/login'} className="Login-button">Log In</Link>
-            </div>
+           
             <h3>CREATE AN ACCOUNT</h3>
             <form onSubmit={handleSubmit} className="register-form" >
                 <div className="name-input">
@@ -122,7 +119,7 @@ export const Register = () => {
                 </div>
                 <div className="personas-values">
                     <label>
-                        Select Preferred Persona:
+                         Preferred Persona:
                         <input 
                           type="radio"
                           value='Farmer'
