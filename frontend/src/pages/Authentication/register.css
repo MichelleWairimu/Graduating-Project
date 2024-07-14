@@ -1,0 +1,105 @@
+/* register.css */
+
+.authentication {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+}
+
+.auth-title {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-header {
+    color: #555;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.name-input {
+    display: flex;
+    justify-content: space-between;
+    margin-left: -5px;
+}
+
+.first-name, .last-name {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.last-name {
+    margin-right: 0; /* Remove margin for last item */
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    margin-left: -10px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    margin-left: -20px;
+}
+
+.personas-values {
+    margin-bottom: 15px;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #218838;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+.success-message {
+    color: green;
+    margin-top: 10px;
+}
+
+.login-prompt {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.login-prompt a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-prompt a:hover {
+    text-decoration: underline;
+}

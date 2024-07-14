@@ -230,7 +230,7 @@
   }
 
 
-button {
+/* button {
     width: 100%;
     padding: 10px;
     border: none;
@@ -243,7 +243,7 @@ button {
     transition: background-color 0.2s ease;
     margin-bottom: 15px;
 
-}
+} */
 
 
 .error {

@@ -9,14 +9,14 @@ export const Navigate = () => {
     // Clear user authentication data
     localStorage.removeItem('userToken'); // Adjust according to your auth mechanism
     // Redirect to the login page
-    navigate('/'); // Adjust to your login route
+    navigate('/defhome'); // Adjust to your login route
   };
 
   return (
     <div>
       <div className='header3'>
         <div className='header4'>
-          <Link to={'/'}>
+          <Link to={'/defhome'}>
             <img src="../../public/images/p2.png" alt="Logo" />
           </Link>
           <nav>
