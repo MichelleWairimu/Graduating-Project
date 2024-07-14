@@ -1,9 +1,7 @@
-// src/pages/MyList.tsx
-
 import React from 'react';
-import { useProductContext } from '../pages/context/productcontext';
+import { useProductContext } from '../context/productcontext';
 import './mylist.css';
-import { Navigate } from '../components/navigat';
+import { Navigate } from '../../components/navigat';
 
 export const MyList: React.FC = () => {
   const { myListProducts, removeFromMyList } = useProductContext();

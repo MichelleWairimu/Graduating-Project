@@ -48,6 +48,7 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
     const updatedMyList = [...myListProducts, product];
     setMyListProducts(updatedMyList);
     localStorage.setItem('myListProducts', JSON.stringify(updatedMyList));
+    alert(`${product.name} added to My List!`);
   };
 
   const removeFromMyList = (index: number) => {
