@@ -13,7 +13,6 @@ export const Footer = () => {
         <a href="https://youtube.com/"><img src="../../public/images/youtube.png" alt="" /></a>
         <a href="https://web.whatsapp.com/"><img src="../../public/images/whatsapp.png" alt="" /></a>
         </div>
-        <p className='boom'>AgriGrow © 2024 Privacy Policy</p>
         <ul>
         <li><Link to={'/home'}>Home</Link></li>
         <li><Link to={'/'}>Contact Us</Link></li>

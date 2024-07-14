@@ -1,7 +1,8 @@
 import './sell.css';
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { useProductContext } from '../context/productcontext';
-import { Navigation } from '../../components/navigation';
+
+import { Navbar } from '../../components/Navbar';
 
 interface Product {
   name: string;
@@ -51,7 +52,7 @@ export const SellPage: React.FC = () => {
 
   return (
     <>
-      <Navigation />
+      <Navbar />
       <div className="sell-page">
         <h1>Sell Your Farming Products</h1>
         <form onSubmit={handleSubmit} className="product-form">

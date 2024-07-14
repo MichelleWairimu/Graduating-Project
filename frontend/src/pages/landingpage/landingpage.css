@@ -79,6 +79,7 @@ nav{
     font-style: normal;
     text-align: center;
     margin: 10px;
+    color: #fff;
 }
 .iframe{
     display: flex;
@@ -109,6 +110,7 @@ iframe{
     font-weight: 500;
     font-style: normal;
     margin: 10px;
+    color: black;
 }
 
 .part1 h1{
@@ -131,6 +133,7 @@ iframe{
     font-style: normal;
     text-align: center;
     margin-top:20px;
+    color: black;
 }
 .part2{
     display: flex;

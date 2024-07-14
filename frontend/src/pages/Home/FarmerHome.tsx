@@ -61,7 +61,7 @@ export const FarmerHome: React.FC = () => {
       {persona &&  localStorage.removeItem('persona');}
       // Adjust according to your auth mechanism
       // Redirect to the login page
-      navigate('/'); // Adjust to your login route
+      navigate('/home'); // Adjust to your login route
     };
   
 
@@ -73,7 +73,7 @@ export const FarmerHome: React.FC = () => {
           <nav>
             <div className="nav-link">
               <ul>
-                <li><Link to={'/home'}>Home</Link></li>
+              <li><Link to={'/home'}>Home</Link></li>
                 <li><Link to={'/addproduct'}>Add Product</Link></li>
                 <li><Link to={'/sell'}>Sell</Link></li>
              
