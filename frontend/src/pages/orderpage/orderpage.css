@@ -58,6 +58,7 @@ nav{
     margin-left: 25%;
     margin-top: 10px;
     border-radius: 10px;
+    transition: 0.5s ease;
 }
 .B{
     padding: 10px 30px;
@@ -70,10 +71,8 @@ nav{
     border-radius: 10px;
     transition: 0.5s ease;
 }
-button:hover{
-    color: #279639;
-    background-color: white;
-    border: 2px solid #279639;
+.B:hover{
+    box-shadow: 10px 10px 0px rgb(9, 251, 9);
 }
 .weather{
     border: 1px solid #279639;
@@ -111,7 +110,7 @@ button:hover{
 }
 .pic1{
     width: 120px;
-    top:52%;
+    top:40%;
     left:37%;
     position: absolute;
     transform: translate(-50%,-50%);
@@ -144,8 +143,7 @@ button:hover{
     border-radius:20px ;
 }
 form{
-    margin-top: 30px;
-    margin-bottom: 30px;
+  max-height:400px;
 }
 form #description{
     width: 100%;
@@ -206,3 +204,13 @@ form h2{
  form h2{
     color: #279639;
  }
+.track{
+    padding: 13px 50px;
+    margin-left:10px;
+    border: none;
+    border-radius: 15px;
+    font-size: 15px;
+    color: white;
+    background-color: #279639;
+    margin-top: 10px;
+}

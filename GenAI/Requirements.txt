@@ -1,9 +1,0 @@
-flask
-python-dotenv
-google-generativeai
-faiss-cpu
-sentence-transformers
-transformers
-huggingface-hub
-pandas
-langchain

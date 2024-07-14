@@ -18,6 +18,7 @@ body{
     margin-left: 25%;
     margin-top: 10px;
     border-radius: 10px;
+    transition: 0.5s ease;
 }
 .B{
     padding: 10px 30px;
@@ -30,11 +31,9 @@ body{
     border-radius: 10px;
     transition: 0.5s ease;
 }
-button:hover{
-    color: #279639;
-    background-color: white;
-    border: 2px solid #279639;
-}
+ .B:hover{
+    box-shadow: 10px 10px 0px rgb(9, 251, 9);
+ }
 .weather{
     border: 1px solid #279639;
     max-width: 450px;
@@ -94,9 +93,9 @@ button:hover{
     display: flex;
 }
 .harvest1{
-    max-width:30%;
+    max-width:40%;
     margin: auto;
-    padding: 50px;
+    padding: 20px;
     border-radius:40px;
     box-shadow: 0 0 5px;
     margin-top: 40px;
@@ -108,35 +107,37 @@ form{
     margin-bottom: 30px;
 }
 form #description{
-    width: 100%;
+    width: 80%;
     margin-top: 2px;
     margin-bottom: 10px;
     padding: 7px;
     border: 1.4px solid black;
+    margin-right: 10px;
 }
 form #location{
-    width: 100%;
+    width: 80%;
     margin-top: 2px;
     margin-bottom: 10px;
     padding: 7px;
     border: 1.4px solid black;
 }
 .E{
-    width: 40%;
+    width: 30%;
     margin-top: 2px;
     margin-bottom: 10px;
     margin-right: 30px;
     border: 1.4px solid black; 
 }
 .F{
-    width: 42%;
+    width: 30%;
     margin-top: 2px;
     margin-bottom: 10px;
     margin-left: 30px;
     border: 1.4px solid black; 
+    margin-right: 10px;
 }
 form #contact{
-    width: 100%;
+    width: 80%;
     margin-top: 2px;
     margin-bottom: 10px;
     padding: 7px;
@@ -173,13 +174,17 @@ form h2{
     color: #279639;
  }
 
- button{
-    padding: 10px 30px;
+ .Dodo{
+    padding: 10px;
     border: none;
     background-color: #279639;
     color: white;
     border-radius:10px ;
     font-size: 20px;
-    margin-left: 150px;
+    margin-left:10px;
     margin-top: 20px;
+    transition: 0.5s ease;
+ }
+ .Dodo:hover{
+    box-shadow: 10px 10px 0px rgb(9, 251, 9);
  }

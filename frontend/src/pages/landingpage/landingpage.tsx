@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import './landingpage.css'
+/* import { Footer } from '../../components/Footer' */
+
 /* import searchBar from '../../components/searchbar'
 
  */export const Landingpage = () => {
@@ -11,12 +13,11 @@ import './landingpage.css'
       <nav>
       <div className="nav-links">
       <ul>
-        <li><Link to={'/home'}>Home</Link></li>
-        <li><Link to={'/'}>About Us</Link></li>
-        <li><Link to={'/'}>Testimonials</Link></li>
-        <li><Link to={'/'}>Contact Us</Link></li>
+        <li><Link to={'/defhome'}>Home</Link></li>
         <li ><Link to={'/register'}>Sign Up</Link></li>
         <li ><Link to={'/login'}>Log In</Link></li>
+        <li><Link to={'/contact'}>Contact</Link></li>
+        <li><Link to={'/sell'}>Sell</Link></li>
       </ul>
       </div>
       </nav>
