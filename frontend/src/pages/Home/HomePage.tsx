@@ -8,7 +8,7 @@ import { FarmerHome } from './FarmerHome';
 export const HomePage = () => {
     // Get the persona from Redux store
     const persona = useSelector((state: any) => state.auth.persona);
-
+    const isLoggedIn = useSelector((state: any) => state.auth.isLoggedIn)
     // Check persona and render corresponding component
     if (!persona) {
         // If persona is undefined, show DefaultHome

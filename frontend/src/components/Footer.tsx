@@ -4,7 +4,7 @@ import './Footer.css'
 export const Footer = () => {
     return (
        <div className='container'>
-       <footer>
+       <footer role='contentinfo'>
         <a href=""><img src="../../public/images/p2.png" alt="" /></a>
         <p>AgriGrow was made based on the issues faced in many countries.It is focused on being easily accessible and easy to use for all.This bridges the gap between farmer and supplier and it also helps the farmer to track their planting progress </p>
         <div className="contents">

@@ -18,32 +18,36 @@ export const BuyerHome: React.FC = () => {
   }, [persona, navigate]);
 
   return (
-    <div>    
+    <div role='main' aria-label='Buyer Home Page'>    
       <Navigate />
-      <h1 className='intromsg'>Welcome to Agrigrow. Your E-commerce website for all agricultural products</h1>
+      <h1 className='intromsg' aria-level={1}>Welcome to Agrigrow. Your E-commerce website for all agricultural products</h1>
       <h1 className='buy1'>Available Farming Products</h1>
       <ul className="product-list">
         {products.map((product, index) => (
           <li key={index} className="product-item">
-            <h3>{product.name}</h3>
+            <h3 aria-level={3}>{product.name}</h3>
             {product.image && (
               <img
                 src={product.image}
                 alt={product.name}
                 className="product-image"
+                aria-hidden={product.name!== ''} 
               />
             )}
-            <p>{product.description}</p>
-            <p>Price: ${product.price}</p>
-            <p>Quantity: {product.quantity}</p>
-            <button className="delete-button" onClick={() => removeProduct(index)}>
+            <p aria-label={`Description of ${product.name}`}>{product.description}</p>
+            <p aria-label={`Price of ${product.name}`}>Price: ${product.price}</p>
+            <p aria-label={`Quantity of ${product.name}`}>Quantity: {product.quantity}</p>
+            <button className="delete-button" onClick={() => removeProduct(index)}
+            aria-label={`Remove ${product.name} from list`}>
               No Interest
             </button>
-            <button className="add-button" onClick={() => addToMyList(product)}>
+            <button className="add-button" onClick={() => addToMyList(product)}
+               aria-label={`Add ${product.name} to my list`}>
               Add to My List
             </button>
           </li>
         ))}
       </ul>
+      /</div>
   );
 };

@@ -69,8 +69,8 @@ export const FarmerHome: React.FC = () => {
     <>
       <div className='header3'>
         <div className='header4'>
-          <a href=""><img src="../../public/images/p2.png" alt="" /></a>
-          <nav>
+          <a href=""><img src="../../public/images/p2.png" alt="" aria-label="Logo"/></a>
+          <nav aria-label="Main navigation">
             <div className="nav-link">
               <ul>
               <li><Link to={'/home'}>Home</Link></li>
@@ -81,7 +81,7 @@ export const FarmerHome: React.FC = () => {
             </div>
            
           </nav>
-          <button onClick={handleLogout} className="logout-button">
+          <button onClick={handleLogout} className="logout-button"  aria-label="Logout">
                     Logout
             </button>
          
@@ -89,7 +89,7 @@ export const FarmerHome: React.FC = () => {
       </div>
       <div className='homepage'>
         <h1>Products</h1>
-        <ul className='display'>
+        <ul className='display' aria-label='Product List'>
           {products.map((product) => (
             <li className='ting' key={product._id}>
               <h2 className='ting1'>{product.description}</h2>
@@ -97,7 +97,7 @@ export const FarmerHome: React.FC = () => {
               <p className='ting2'>Harvest Time: {product.harvestTime}</p>
               <p className='ting2'>Price: {product.price}</p>
               <p className='ting2'>Contact: {product.contact}</p>
-              <button className='lol' onClick={() => handleRemove(product._id)}>Remove</button>
+              <button className='lol' onClick={() => handleRemove(product._id)} aria-label={`Remove ${product.description}`}>Remove</button>
             </li>
           ))}
         </ul>
