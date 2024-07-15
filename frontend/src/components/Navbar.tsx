@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import './Navbar.css'
 import { useSelector} from 'react-redux'
 
+
+
 export const Navbar =() => {
    /*  const persona = useSelector((state: any) => state.auth.persona); */
    /*  const userId = useSelector((state: any) => state.auth.userId); */

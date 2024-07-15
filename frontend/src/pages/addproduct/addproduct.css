@@ -186,3 +186,54 @@ form h2{
  .Dodo:hover{
     box-shadow: 10px 10px 0px rgb(9, 251, 9);
  }
+
+ @media only screen and (max-width: 800px) {
+    .harvests {
+      max-width: 600px;
+    }
+    .harvest1 {
+      padding: 10px;
+    }
+    input[type="text"],
+    input[type="tel"] {
+      margin-bottom: 10px;
+    }
+    .flex {
+      flex-direction: column;
+    }
+    .C,
+    .D {
+      width: 100%;
+    }
+    .E,
+    .F {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .harvests {
+      max-width: 400px;
+    }
+    .harvest1 {
+      padding: 10px;
+    }
+    input[type="text"],
+    input[type="tel"] {
+      margin-bottom: 10px;
+    }
+  }
+  
+  @media only screen and (max-width: 400px) {
+    .harvests {
+      max-width: 300px;
+    }
+    .harvest1 {
+      padding: 10px;
+    }
+    input[type="text"],
+    input[type="tel"] {
+      margin-bottom: 10px;
+    }
+  }

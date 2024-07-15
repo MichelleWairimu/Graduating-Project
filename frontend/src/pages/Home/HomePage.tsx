@@ -12,26 +12,16 @@ export const HomePage = () => {
     const persona = useSelector((state: any) => state.auth.persona)
     const isLoggedIn = useSelector((state:any) => state.auth.isLoggedIn)
 
-    return (
+  if (!isLoggedIn) {
+    return <DefaultHome/>
+  }
 
-        <>
-        <div>
-             <div>
-            {persona === "Farmer" ? (
-                < FarmerHome/>
-
-            ) : persona === 'Buyer' ? (
-                <BuyerHome />
-            ): (
-                <DefaultHome />
-            )
-          ): (
-            <DefaultHome />
-          )}
-            
-        </div>
-        </div>
-        </>
-
-    )
+  switch(persona){
+    case 'Farmer':
+        return <FarmerHome/>
+    case 'Buyer': 
+        return <BuyerHome/>
+    default:
+        return <DefaultHome/>
+    }
 }

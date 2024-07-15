@@ -87,3 +87,43 @@
   .add-button:hover{
     box-shadow: 0 0 3px;
   }
+
+  .orderlink {
+    border: #fff 1px solid;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #279639;
+    color: #fff;
+    margin-top: 20px;
+    margin-left: 300px;
+    margin-right: 300px;
+    min-width: max-content;
+    display: block;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: larger;
+
+  }
+
+  .orderlink:hover{
+    background-color: rgb(35, 221, 35);
+  }
+
+  .navtoorder {
+    text-align: center;
+  }
+
+  .intromsg {
+    border: #fff 1px solid;
+    border-radius: 10px;
+    padding: 50px;
+    background-color: #279639;
+    color: #fff;
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    min-width: fit-content;
+    display: block;
+    align-items: center;
+  }

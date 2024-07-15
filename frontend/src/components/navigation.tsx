@@ -14,9 +14,8 @@ export const Navigation = () => {
               <ul>
                 <li><Link to={'/home'}>Home</Link></li>
                 <li><Link to={'/addproduct'}>Add Product</Link></li>
-                <li><Link to={'/order'}>Order</Link></li>
                 <li><Link to={'/contact'}>Contact Us</Link></li>
-                <li><Link to={'/sell'}>Sell</Link></li>
+
                 <li>
                 </li>
               </ul>

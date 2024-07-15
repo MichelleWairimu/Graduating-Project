@@ -77,3 +77,54 @@
     margin-bottom: 10px;
   }
   
+  
+/* Media queries */
+@media only screen and (max-width: 1200px) {
+  .sell-page {
+     margin-left: 200px;
+   }
+ }
+ 
+ @media only screen and (max-width: 1000px) {
+  .sell-page {
+     margin-left: 100px;
+   }
+ }
+ 
+ @media only screen and (max-width: 800px) {
+  .sell-page {
+     margin-left: 50px;
+   }
+ }
+ 
+ @media only screen and (max-width: 600px) {
+  .sell-page {
+     margin-left: 20px;
+     padding: 10px;
+   }
+  .product-form {
+     gap: 5px;
+   }
+  .product-form input,
+  .product-form textarea,
+  .product-form button {
+     padding: 5px;
+     font-size: 14px;
+   }
+ }
+ 
+ @media only screen and (max-width: 400px) {
+  .sell-page {
+     margin-left: 10px;
+     padding: 5px;
+   }
+  .product-form {
+     gap: 2px;
+   }
+  .product-form input,
+  .product-form textarea,
+  .product-form button {
+     padding: 2px;
+     font-size: 12px;
+   }
+ }

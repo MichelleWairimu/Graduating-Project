@@ -2,7 +2,6 @@ import express, { Express, Request, Response} from 'express'
 import cors from 'cors'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
-const nodemailer = require('nodemailer');
 import { registerRoutes } from './Routes'
 
 dotenv.config()
@@ -113,16 +112,16 @@ app.delete('/products/:id', async (req, res) => {
 });
 
 // Nodemailer configuration
-const transporter = nodemailer.createTransport({
+/* const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: 'totimbugz@gmail.com', // Replace with your email
         pass: 'Ivynzilani12', // Replace with your email password or app password
     },
 });
-
+ */
 // Contact form endpoint
-app.post('/contact', (req, res) => {
+/* app.post('/contact', (req, res) => {
     const { name, email, message } = req.body;
 
     const mailOptions = {
@@ -147,7 +146,7 @@ app.get('/buyerhome', async (req, res) => {
         res.status(500).json({ error: 'Failed to fetch products' });
     }
 });
-
+ */
 
 app.listen(PORT, ()=> {
     console.log(`Server running on port ${PORT}`)
